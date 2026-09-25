@@ -113,11 +113,7 @@ public class GoalRow
     public int addDie(Die d)
     {
 
-        if (numSlotsFilled < dicePlacedInRow.length)
-        {
-            dicePlacedInRow[numSlotsFilled] = d;
-            numSlotsFilled++;
-        }
+
         // TODO - Required: You write this.
 
         if (this.isFull())
