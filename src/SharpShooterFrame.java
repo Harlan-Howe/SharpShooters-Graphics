@@ -20,7 +20,7 @@ public class SharpShooterFrame extends JFrame implements ActionListener
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(guiMainPanel,BorderLayout.CENTER);
         JPanel northPanel = new JPanel(new FlowLayout());
-        messageLabel = new JLabel("Welcome to Sharp Shooters.");
+        messageLabel = new JLabel("Player 1, please roll.");
         northPanel.add(messageLabel);
         getContentPane().add(northPanel, BorderLayout.NORTH);
 
