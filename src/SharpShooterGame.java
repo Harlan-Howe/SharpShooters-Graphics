@@ -56,13 +56,22 @@ public class SharpShooterGame
 
 
     /**
-     * determines whether there are any more rewards to be collected. If not, you might end the game or end this turn
-     * and regenerate the board. If you decide to end the game, I recommend using the displayPopupWindow() method,
-     * above.
+     * determines whether there are no more rewards to be collected.
      */
-    public void checkWhetherBoardIsCompletelyFilled()
+    public boolean checkWhetherBoardIsCompletelyFilled()
     {
-        //TODO - Recommended: you write this.
+        return board.allRewardsAreClaimed();
+    }
+
+    /**
+     * Here is where you might end the game OR end this turn and regenerate the board.
+     * If you decide to end the game, I recommend using the displayPopupWindow() method,
+     * above and then System.exit(0).
+     */
+    public void respondToFilledCard()
+    {
+        // TODO - Recommended: write this method.
+        System.out.println("I'm responding to a filled card.");
     }
 
     /**
