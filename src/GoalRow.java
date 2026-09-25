@@ -116,8 +116,7 @@ public class GoalRow
 
         // TODO - Required: You write this.
 
-        if (this.isFull())
-            return reward;
+
         return 0;
     }
 
