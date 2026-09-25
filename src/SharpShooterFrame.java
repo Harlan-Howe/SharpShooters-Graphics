@@ -43,6 +43,12 @@ public class SharpShooterFrame extends JFrame implements ActionListener
         referee = ref;
     }
 
+    public void setMessage(String message)
+    {
+        messageLabel.setText(message);
+        repaint();
+    }
+
     public void setRollButtonEnabled(boolean b) {rollButton.setEnabled(b);}
     public void enableRollButton(){setRollButtonEnabled(true);}
     public void disableRollButton(){setRollButtonEnabled(false);}
