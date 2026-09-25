@@ -41,6 +41,7 @@ public class SharpShooterGame
      */
     public void displayPopupWindow(String title, String message)
     {
+        GUI.repaint(); // let's try to get the screen to update.
         JOptionPane.showMessageDialog(GUI, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
