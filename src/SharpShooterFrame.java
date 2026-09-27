@@ -15,7 +15,7 @@ public class SharpShooterFrame extends JFrame implements ActionListener
     {
         super("Sharp Shooters");
         guiMainPanel = panel;
-        setSize(800,800);
+        setSize(550,650);
         setResizable(false);
         getContentPane().setLayout(new BorderLayout());
         getContentPane().add(guiMainPanel,BorderLayout.CENTER);

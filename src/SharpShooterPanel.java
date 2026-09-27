@@ -59,7 +59,7 @@ public class SharpShooterPanel extends JPanel implements MouseListener
         {
             g.setColor(Color.BLACK);
             g.setFont(SCORE_FONT);
-            g.drawString("Player "+(i+1)+" Score: "+scores[i], 20, 600+i*50);
+            g.drawString("Player "+(i+1)+" Score: "+scores[i], 20, 475+i*50);
         }
     }
 
