@@ -63,6 +63,26 @@ public class SharpShooterPanel extends JPanel implements MouseListener
         }
     }
 
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        for (Die d: dice)
+        {
+            if (d == null)
+                builder.append("---");
+            else
+                builder.append(d.toString());
+            builder.append("\t");
+        }
+        builder.append("\n------------------------------------------------------------------------\n");
+        builder.append(board.toString());
+        builder.append("Player 0 Score: "+scores[0]+"\n");
+        builder.append("Player 1 Score: "+scores[1]);
+
+        return builder.toString();
+    }
+
     @Override
     public void mouseClicked(MouseEvent e)
     {

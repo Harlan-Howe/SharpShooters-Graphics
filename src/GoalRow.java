@@ -3,7 +3,7 @@ import java.awt.*;
 public class GoalRow
 {
 //    private static Image icons = new Image[9];
-    private int[] diceToMatch;
+    private int[] valuesToMatch;
     private Die[] dicePlacedInRow;
     private int reward;
     private int numSlotsFilled;
@@ -15,10 +15,10 @@ public class GoalRow
     private static final Color[] wildColors = {Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
 
 
-    public GoalRow(int[] diceToMatch, int reward)
+    public GoalRow(int[] valuesToMatch, int reward)
     {
-        this.diceToMatch = diceToMatch;
-        this.dicePlacedInRow = new Die[this.diceToMatch.length]; // starts filled with null values.
+        this.valuesToMatch = valuesToMatch;
+        this.dicePlacedInRow = new Die[this.valuesToMatch.length]; // starts filled with null values.
         this.reward = reward;
         this.numSlotsFilled = 0;
     }
@@ -29,7 +29,7 @@ public class GoalRow
 
     public void drawRowAt(Graphics g, int x, int y)
     {
-        for (int i=0; i<diceToMatch.length; i++)
+        for (int i = 0; i< valuesToMatch.length; i++)
         {
             if (reward >=0)
                 g.setColor(Color.WHITE);
@@ -40,18 +40,18 @@ public class GoalRow
             g.drawRoundRect(x+(SLOT_SPACING+SLOT_SIZE) *i,y,SLOT_SIZE,SLOT_SIZE,3,3);
             g.setFont(SLOT_FONT);
 
-            if (diceToMatch[i] < 7)
+            if (valuesToMatch[i] < 7)
             {
                 if (reward >=0)
                     g.setColor(Color.BLACK);
                 else
                     g.setColor(Color.WHITE);
-                g.drawString(""+diceToMatch[i], x+(SLOT_SPACING+SLOT_SIZE)*i+8,y+32);
+                g.drawString(""+ valuesToMatch[i], x+(SLOT_SPACING+SLOT_SIZE)*i+8,y+32);
             }
             else
             {
-                g.setColor(wildColors[(diceToMatch[i]-7)%4]);
-                g.drawString(""+(char)(58+diceToMatch[i]), x+(SLOT_SPACING+SLOT_SIZE)*i+8, y+32);
+                g.setColor(wildColors[(valuesToMatch[i]-7)%4]);
+                g.drawString(""+(char)(58+ valuesToMatch[i]), x+(SLOT_SPACING+SLOT_SIZE)*i+8, y+32);
             }
         }
         if (reward != 0)
@@ -118,6 +118,29 @@ public class GoalRow
 
 
         return 0;
+    }
+
+    public String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        for (Die d:dicePlacedInRow)
+        {
+            if (d == null)
+                break;
+            builder.append(d);
+            builder.append("\t");
+        }
+        builder.append("\n");
+        for (int v: valuesToMatch)
+        {
+            builder.append("_");
+            builder.append(v);
+            builder.append("_\t");
+        }
+        builder.append("--> reward: ");
+        builder.append(reward);
+        return builder.toString();
     }
 
 }

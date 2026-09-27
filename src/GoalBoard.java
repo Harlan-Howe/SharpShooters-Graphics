@@ -151,4 +151,17 @@ public class GoalBoard
     {
         return myRows[row].getReward();
     }
+
+    public  String toString()
+    {
+        StringBuilder builder = new StringBuilder();
+        for (int i=0; i<myRows.length; i++)
+        {
+            builder.append(i);
+            builder.append("\n");
+            builder.append(myRows[i].toString());
+            builder.append("\n------------------------------------------------------------------------\n");
+        }
+        return builder.toString();
+    }
 }
