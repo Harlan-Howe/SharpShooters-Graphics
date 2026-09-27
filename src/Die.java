@@ -154,7 +154,7 @@ public class Die
     public String toString()
     {
         if (isSelected)
-            return " "+value+" ";
+            return "*"+value+"*";
         else
             return "["+value+"]";
     }
