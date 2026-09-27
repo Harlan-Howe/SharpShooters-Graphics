@@ -2,7 +2,8 @@ import java.awt.*;
 
 public class GoalRow
 {
-//    private static Image icons = new Image[9];
+    public static final String STAR_STRING = "★"; // or use "?" if emojiis aren't working for you.
+    //    private static Image icons = new Image[9];
     private int[] valuesToMatch;
     private Die[] dicePlacedInRow;
     private int reward;
@@ -12,7 +13,7 @@ public class GoalRow
     private static final int SLOT_SIZE = 40;
     private static final Font SLOT_FONT = new Font("Ariel",Font.BOLD, 32);
     private static final Font REWARD_FONT = new Font("Ariel",Font.BOLD, 24);
-    private static final Color[] wildColors = {Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
+    private static final Color[] wildColors = {Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA, Color.CYAN, new Color(255,128,0)};
 
 
     public GoalRow(int[] valuesToMatch, int reward)
@@ -50,8 +51,9 @@ public class GoalRow
             }
             else
             {
-                g.setColor(wildColors[(valuesToMatch[i]-7)%4]);
-                g.drawString(""+(char)(58+ valuesToMatch[i]), x+(SLOT_SPACING+SLOT_SIZE)*i+8, y+32);
+                g.setColor(wildColors[(valuesToMatch[i]-7)%6]);
+                //g.drawString(""+(char)(58+ valuesToMatch[i]), x+(SLOT_SPACING+SLOT_SIZE)*i+8, y+32);
+                g.drawString(STAR_STRING, x+(SLOT_SPACING+SLOT_SIZE)*i+4, y+32);
             }
         }
         if (reward != 0)
